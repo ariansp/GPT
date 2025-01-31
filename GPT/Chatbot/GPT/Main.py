@@ -101,6 +101,6 @@ if prompt := st.chat_input("Hi OCS!", key="chat_input"):
                 else:
                     message(msg['content'], is_user=False, key=unique_key, avatar_style="icons")
 
-        st.experimental_set_query_params(refresh=True)
+        st.rerun()
     else:
         st.error(f"Error: {response.status_code}, {response.text}")
