@@ -90,7 +90,7 @@ if prompt := st.chat_input("Hi OCS!", key="chat_input"):
         response_text = completion['choices'][0]['message']['content'].strip()
         
         # Add assistant message to chat history
-        # st.session_state.messages.append({"role": "assistant", "content": response_text})
+        st.session_state.messages.append({"role": "assistant", "content": response_text})
         
         # Update chat history
         with chat_placeholder.container():
@@ -100,5 +100,7 @@ if prompt := st.chat_input("Hi OCS!", key="chat_input"):
                     message(msg['content'], is_user=True, key=unique_key, avatar_style="icons")
                 else:
                     message(msg['content'], is_user=False, key=unique_key, avatar_style="icons")
+
+        st.query_params()
     else:
         st.error(f"Error: {response.status_code}, {response.text}")
